@@ -140,7 +140,26 @@ root_directory/
 ## Demo Video
 ![Demo](./assets/demo.mp4)
 
+
+
+## Pending Tasks
+
+- [x] Optimize data loading and preprocessing
+- [x] Implement additional visualization techniques
+- [ ] Enhance documentation with more detailed explanations
+- [ ] Add support for GPU training (MPS Not available in TorchDrug)
+
+
+
 ## Cite this
+@misc{DSP2024,
+  author = {Your Name},
+  title = {DSP (Deep Synergy Prediction)},
+  year = {2024},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{ https://github.com/sujaykumarmag/DSP.git}}
+}
 
 
 
