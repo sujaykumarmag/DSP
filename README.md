@@ -155,7 +155,7 @@ root_directory/
 
 ```bibtex
 @misc{DSP2024,
-  author = {Your Name},
+  author = {SujayKumar Reddy M},
   title = {DSP (Deep Synergy Prediction)},
   year = {2024},
   publisher = {GitHub},
