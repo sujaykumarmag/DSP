@@ -1,0 +1,111 @@
+Graph Networks
+
+
+Complications
+    1. Artibitary size
+    2. No Spatial Locality (like grids)
+    3. Multi-modality !?
+
+
+Tasks in Graph Networks
+    1. Node Classification - Traditional ML
+    2. Link Prediction - Traditional ML
+    3. subgraph prediction (community)
+    4. New Generated Graph
+    5. Graph level prediction - Traditional ML
+
+
+2021 Statistics
+ - 46% of peope ages 70-79 take more than 5 drugs  
+ - Many patients take more than 20 drugs to treat Heart Disease, Depression, Insomnia
+
+
+
+
+
+Topic 1  :  Graph data based for Traditional ML
+ML needs features manually, so feature design is needed to (capture the relational structure of the Network)
+
+
+Task 1 - Node level Prediction
+
+Designing Node level Feature Engineering
+    - Node Degree (Importance based features -> Is the node important !?)
+    - Node Centrality (Importance based features -> Is the node important !?)
+        1. Eigen-vector Centrality
+        2. Between Centrality
+        3. Closeness Centrality
+    - Clustering Co-efficients (Signature based Features)
+    - Graphlet Degree Vector (GDV) (Signature based Features) 
+        * Graphlets are rooted connected non-isomorphic subgraph
+
+
+
+
+
+
+Task 2 - Link-level Prediction
+
+Approaches 
+1. Remove some random links and train an ML classifier to output the tuple of nodes (links)
+2. Predict the links at G[t0, t0`] and compare it with G[t1, t1`] (this is for graph that evolves overtime)
+
+Methodology : Predict a score c(x,y) for node x and node y
+
+Designing Edge level Features
+    - Distance based (shortest distance between 2 nodes)
+    - Local Neighborhood Overlap
+        1. Common Neighbors
+        2. Jaccard co-efficients
+        3. Adamic Adar Index
+    - Global Neighborhood Overlap (prefer this, rest not needed)
+        1. Katz Index 
+
+
+
+Task 3 -  Graph-level Prediction
+
+Approaches
+1. Represent the features into an kernel and use kernelSVM for Classification (use Bag-of-nodefeatures)
+
+Designing Graph level features 
+    - k-step Graph Coloring Algorithm (Weisfeiler-Lehman kernel)
+
+
+
+
+    
+
+
+
+
+
+
+
+Note :
+The way we assign links will determine the nature of the question we study 
+
+
+
+
+ 
+
+  
+
+
+
+
+chemicalx
+
+Disadvantages
+
+1. version python control 
+ERROR: Package 'chemicalx' requires a different Python: 3.10.12 not in '<=3.9,>=3.7'
+
+2. version control (torchdrug)
+TORCHDRUG_NODE_FEATURES = len(atom_default(Molecule.dummy_atom))
+AttributeError: type object 'Molecule' has no attribute 'dummy_atom'. Did you mean: 'dummy_mol'?
+
+
+
+
