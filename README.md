@@ -152,6 +152,8 @@ root_directory/
 
 
 ## Cite this
+
+```bibtex
 @misc{DSP2024,
   author = {Your Name},
   title = {DSP (Deep Synergy Prediction)},
@@ -160,6 +162,7 @@ root_directory/
   journal = {GitHub Repository},
   howpublished = {\url{ https://github.com/sujaykumarmag/DSP.git}}
 }
+```
 
 
 
