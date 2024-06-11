@@ -13,8 +13,10 @@ DSP (Deep Synergy Prediction) is a machine learning project designed to predict 
   - [Visualizing Embeddings](#visualizing-embeddings)
 - [Configuration](#configuration)
 - [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [License](#license)
+- [Demo](#demo)
+- [Pending Tasks](#pending-tasks)
+- [Cite This Work](#cite-this-work)
+
 
 
 
@@ -133,6 +135,13 @@ root_directory/
 └── notebooks/
     └── train.ipynb ....
 ```
+
+
+## Demo Video
+![Demo](./assets/demo.mp4)
+
+## Cite this
+
 
 
 
