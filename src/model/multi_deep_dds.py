@@ -97,7 +97,7 @@ class MultiDeepDDS(Model):
             activation="relu",
         )
 
-        # GIN
+        # GAT
         self.drug_conv1 = GraphAttentionNetwork(
             input_dim=drug_channels,
             hidden_dims=drug_gcn_hidden_dims,

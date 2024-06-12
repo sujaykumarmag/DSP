@@ -87,15 +87,26 @@ class UltraNet(nn.Module):
             self.save_edges(edge_lists)
             
             embeddings  = []
-  
-            md = MoleculesData()
-            data = md.process()
-            device = util.get_devices(None)
-            world_size = util.get_world_size()
-            rank = util.get_rank()
-            sampler = torch_data.DistributedSampler(edge_lists, world_size, rank)
-            test_loader = torch_data.DataLoader(edge_lists, len(edge_lists), sampler=sampler)    
-            self.ultra_model.eval()
+            try: 
+                md = MoleculesData()
+                data = md.process()
+                device = util.get_devices(None)
+                world_size = util.get_world_size()
+                rank = util.get_rank()
+                sampler = torch_data.DistributedSampler(edge_lists, world_size, rank)
+                test_loader = torch_data.DataLoader(edge_lists, len(edge_lists), sampler=sampler)    
+                self.ultra_model.eval()
+            except:
+                t_pred = np.zeros((2,3))
+                h_pred = np.zeros((2,3))
+                drug_df = pd.concat([pd.DataFrame(t_pred),pd.DataFrame(h_pred)],axis=1)
+                emb = np.array(drug_df).reshape(-1)
+                embeddings.append(emb)
+                embeddings = np.array(embeddings).reshape(-1)
+                padded_embedding = np.pad(embeddings, (0, self.padding - len(embeddings)), 'constant')
+                drug_embedding_batch.append(padded_embedding)
+                continue
+
             
             for batch in test_loader:
                 t_batch, h_batch = self.all_negative(data, batch)

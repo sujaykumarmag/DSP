@@ -12,14 +12,34 @@ from sklearn.metrics import accuracy_score,f1_score, confusion_matrix,precision_
 
 
 
-def plot_embeddings(z_hidden):
-    xs, ys = zip(*TSNE().fit_transform(z_hidden.detach().numpy()))
-    plt.scatter(xs, ys)
-    plt.show()
+# def plot_embeddings(z_hidden):
+#     xs, ys = zip(*TSNE().fit_transform(z_hidden.detach().numpy()))
+#     plt.scatter(xs, ys)
+#     plt.show()
 
 
     
 
+def plot_embeddings(z_hidden, molecules, title):
+    z_hidden = z_hidden.detach().numpy()
+    print(z_hidden.shape)
+
+    molecules.visualize()
+    plt.show()
+    # molecules.visualize()
+    embeddings = TSNE().fit_transform(z_hidden.T)
+    xs, ys = embeddings[:, 0], embeddings[:, 1]
+    
+    plt.figure(figsize=(10, 8))
+    plt.scatter(xs, ys, alpha=0.6)
+    
+    for i, mol in enumerate(molecules):
+        plt.annotate(mol, (xs[i], ys[i]), fontsize=8, alpha=0.75)
+    
+    plt.title(title)
+    plt.xlabel('t-SNE component 1')
+    plt.ylabel('t-SNE component 2')
+    plt.show()
 
 
 

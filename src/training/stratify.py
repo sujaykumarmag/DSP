@@ -38,7 +38,7 @@ class StratifyTrain(NormalTrain):
         else:
             """
                 1. Dataset 1 (DrugcombDB) == Padded == 48980
-                2. Dataset 2 (DrugComb)   == Padded == 
+                2. Dataset 2 (DrugComb)   == Padded == 48980
             """
             if self.dataset == "drugcombdb":
                 return UltraNet(input_dims=2*48980,padding=48980)
@@ -119,7 +119,7 @@ class StratifyTrain(NormalTrain):
         results_folded = []
         for fold_idx, (train_idx, test_idx) in tqdm(enumerate(k_splits, start=1)):
             train_loader, test_loader = self.loader.get_stratify_dataloader(train_idx,test_idx)
-            # model_dict["model"] = self.train(train_loader,model_dict["model"])
+            model_dict["model"] = self.train(train_loader,model_dict["model"])
             y_pred, y_test = self.evaluate(test_loader,model_dict["model"])
             cls = classification_report(y_pred=y_pred,y_true=y_test,output_dict=True)
             results_folded.append(self.get_training_metrics(cls))

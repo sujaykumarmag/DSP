@@ -28,7 +28,6 @@ class NormalTrain():
         self.epochs = args.epochs
         self.train_loader = loader.train_loader
         self.test_loader =  loader.test_loader
-        
 
         print("Train Dataloader -- length : ",len(self.train_loader))
         print("Test Dataloader -- length : ",len(self.test_loader))
@@ -41,14 +40,14 @@ class NormalTrain():
 
 
     def get_models(self):
-        if self.model == "gin-gat":
+        if self.model == "gin-gat" or self.model == "gat-gin":
             return MultiDeepDDS(context_channels=len(self.train_loader.context_feature_set))
         elif self.model == "gat-gat" or self.model == "deepdds":
             return DeepDDS(context_channels=len(self.train_loader.context_feature_set))
         else:
             """
                 1. Dataset 1 (DrugcombDB) == Padded == 48980
-                2. Dataset 2 (DrugComb)   == Padded == 
+                2. Dataset 2 (DrugComb)   == Padded == 48980
             """
             if self.dataset == "drugcombdb":
                 return UltraNet(input_dims=2*48980,padding=48980)
@@ -118,9 +117,9 @@ class NormalTrain():
         ax.scatter(z2,z1, c='blue', label=f'{label}')
         ax.set_title('Z2 and Z1')
         ax.legend()
-        os.makedirs(f'{self.resultsdir}',exist_ok=True)
-        os.makedirs(f'{self.resultsdir}/train {self.get_train_num()}',exist_ok=True)
-        plt.savefig(f'{self.resultsdir}/train {self.get_train_num()}/embeddings_ultra.png')
+        self.num = self.get_train_num()
+        os.makedirs(f'{self.resultsdir}/train {self.num}',exist_ok=True)
+        plt.savefig(f'{self.resultsdir}/train {self.num}/embeddings_ultra.png')
 
 
     def get_train_num(self):
@@ -177,8 +176,7 @@ class NormalTrain():
         model_dict["model"] = model
         optimizer = torch.optim.Adam(model.parameters(),lr=self.lr)
         for i in tqdm(range(self.epochs)):
-            # loss, model_dict["model"] = self.train_model(model_dict["model"],optimizer)
-            loss = 0.0
+            loss, model_dict["model"] = self.train_model(model_dict["model"],optimizer)
             y_pred, y_test = self.evaluate(model_dict["model"])
             cls = classification_report(y_pred=y_pred,y_true=y_test,output_dict=True)
             training_metrics.append(self.get_training_metrics(loss,cls))
