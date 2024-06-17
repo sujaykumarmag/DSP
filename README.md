@@ -134,11 +134,15 @@ root_directory/
 │ 
 └── notebooks/
     └── train.ipynb ....
+
+
 ```
 
 
 ## Demo Video
-![Demo](./assets/demo.mp4)
+
+https://github.com/sujaykumarmag/DSP/assets/75253527/881bde34-c9e4-4672-b8d9-68d8937685b2
+
 
 
 
@@ -146,24 +150,11 @@ root_directory/
 
 - [x] Optimize data loading and preprocessing
 - [x] Implement additional visualization techniques
-- [ ] Enhance documentation with more detailed explanations
+- [x] Enhance documentation with more detailed explanations (report in `assets/report.pdf`)
 - [ ] Add support for GPU training (MPS Not available in TorchDrug)
 - [ ] Adding Graph Interpretability and Explainability using `Captum`
 
 
-
-## Cite this
-
-```bibtex
-@misc{DSP2024,
-  author = {SujayKumar Reddy M},
-  title = {DSP (Deep Synergy Prediction)},
-  year = {2024},
-  publisher = {GitHub},
-  journal = {GitHub Repository},
-  howpublished = {\url{ https://github.com/sujaykumarmag/DSP.git}}
-}
-```
 
 
 
