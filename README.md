@@ -15,7 +15,7 @@ DSP (Deep Synergy Prediction) is a machine learning project designed to predict 
 - [File Structure](#file-structure)
 - [Demo](#demo)
 - [Pending Tasks](#pending-tasks)
-- [Cite This Work](#cite-this-work)
+
 
 
 
