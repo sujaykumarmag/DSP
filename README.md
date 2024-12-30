@@ -31,7 +31,7 @@ DSP (Deep Synergy Prediction) is a machine learning project designed to predict 
 2. Create and activate a virtual environment:
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scriptsctivate`
+   source venv/bin/activate  # On Windows, use `venv\Scripts\Activate`
    ```
 
 3. Install the required packages:
