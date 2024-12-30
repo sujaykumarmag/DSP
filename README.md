@@ -146,7 +146,7 @@ https://github.com/sujaykumarmag/DSP/assets/75253527/881bde34-c9e4-4672-b8d9-68d
 
 
 
-## Pending Tasks
+## Features
 
 - [x] Optimize data loading and preprocessing
 - [x] Implement additional visualization techniques
